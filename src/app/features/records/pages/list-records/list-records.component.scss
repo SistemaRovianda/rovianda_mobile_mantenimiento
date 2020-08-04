@@ -1,0 +1,98 @@
+@import "../../../../../theme/mixins.scss";
+
+.container {
+  height: 100%;
+
+  @include breakpoint-size(ms-landscape) {
+    height: 80%;
+  }
+
+  &-grid {
+    height: 100%;
+    .row {
+      &-1 {
+        height: 5%;
+
+        @include breakpoint-size(ms-medium) {
+          height: 10%;
+        }
+
+        ion-col {
+          h1 {
+            @include breakpoint-size(ms-extra-small) {
+              font-size: var(--fs-text-title-xsm);
+            }
+
+            @include breakpoint-size(ms-small) {
+              font-size: var(--fs-text-title-sm);
+            }
+
+            @include breakpoint-size(ms-medium) {
+              font-size: var(--fs-text-title-md);
+            }
+
+            @include breakpoint-size(ms-extra-large) {
+              font-size: var(--fs-text-title-xl);
+            }
+          }
+        }
+      }
+
+      &-2 {
+        height: 5%;
+
+        ion-col {
+          @include breakpoint-size(ms-extra-small) {
+            font-size: var(--fs-text-xsm);
+          }
+
+          @include breakpoint-size(ms-small) {
+            font-size: var(--fs-text-sm);
+            text-align: center;
+          }
+
+          @include breakpoint-size(ms-medium) {
+            font-size: var(--fs-text-md);
+          }
+
+          @include breakpoint-size(ms-medium) {
+            text-align: center;
+          }
+        }
+      }
+
+      &-3 {
+        height: 75%;
+        overflow-y: scroll;
+
+        @include breakpoint-size(ms-medium) {
+          height: 70%;
+        }
+      }
+
+      &-4 {
+        height: 15%;
+
+        ion-col {
+          ion-button {
+            @include breakpoint-size(ms-extra-small) {
+              font-size: var(--fs-text-xsm);
+            }
+
+            @include breakpoint-size(ms-small) {
+              font-size: var(--fs-text-sm);
+            }
+
+            @include breakpoint-size(ms-medium) {
+              font-size: var(--fs-text-md);
+            }
+
+            @include breakpoint-size(ms-extra-large) {
+              font-size: var(--fs-text-xl);
+            }
+          }
+        }
+      }
+    }
+  }
+}

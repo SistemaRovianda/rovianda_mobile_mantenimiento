@@ -1,0 +1,48 @@
+<ion-content>
+  <title-header
+    [titlePath]="'Regresar'"
+    [title]="'Mantenimiento'"
+    (onBack)="back($event)"
+  ></title-header>
+
+  <div class="container">
+    <ion-grid class="container-grid">
+      <ion-row
+        class="row row-1 ion-justify-content-center ion-align-items-center"
+      >
+        <ion-col size="12">
+          <h1 class="title">Registros</h1>
+        </ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col *ngIf="!(products$ | async)" class="text-dark"
+          >No existen registros</ion-col
+        >
+      </ion-row>
+      <ion-row class="row row-3">
+        <ion-col size="12">
+          <list-records-card
+            *ngFor="let product of products$ | async"
+            [product]="product"
+          >
+          </list-records-card>
+        </ion-col>
+      </ion-row>
+      <ion-row
+        class="row row-4 ion-justify-content-center ion-align-items-center"
+      >
+        <ion-col size="8">
+          <ion-button
+            expand="block"
+            color="primary"
+            size="large"
+            [routerLink]="['/record/new-record']"
+          >
+            Agregar nuevo registro
+          </ion-button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </div>
+</ion-content>

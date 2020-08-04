@@ -1,0 +1,32 @@
+<ion-content>
+  <title-header
+    [titlePath]="'Salir'"
+    [title]="'Mantenimiento'"
+    (onBack)="signOut($event)"
+  ></title-header>
+  <ion-row>
+    <ion-col size="12">
+      <h1 class="title-menu">Menú</h1>
+    </ion-col>
+  </ion-row>
+  <ion-segment class="body ion-justify-content-center ion-align-items-center">
+    <ion-grid>
+      <ion-row>
+        <ion-col size="6">
+          <ion-button
+            [routerLink]="['/record/list']"
+            style="--background: #575552;"
+            >Ver registros</ion-button
+          >
+        </ion-col>
+        <ion-col size="6">
+          <ion-button
+            [routerLink]="['/record/new-record']"
+            style="--background: #575552;"
+            >Agregar registro</ion-button
+          >
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-segment>
+</ion-content>

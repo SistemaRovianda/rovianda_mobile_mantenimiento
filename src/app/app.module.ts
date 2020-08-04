@@ -15,6 +15,9 @@ import { metaReducers } from "./shared/store/reducer/index.reducers";
 import { StoreDevtoolsModule } from "@ngrx/store-devtools";
 import { EffectsModule } from "@ngrx/effects";
 import { effects } from "./shared/store/effects/index.effects";
+import { IonicStorageModule } from "@ionic/storage";
+import { AppProvidersModule } from "./providers/app-providers.module";
+import { HttpClientModule } from "@angular/common/http";
 
 @NgModule({
   declarations: [AppComponent],
@@ -23,7 +26,9 @@ import { effects } from "./shared/store/effects/index.effects";
     BrowserModule,
     IonicModule.forRoot(),
     AppRoutingModule,
+    AppProvidersModule,
     AngularFireAuthModule,
+    IonicStorageModule.forRoot(),
     StoreModule.forRoot(reducers, {
       metaReducers,
       runtimeChecks: {
@@ -35,11 +40,13 @@ import { effects } from "./shared/store/effects/index.effects";
     StoreDevtoolsModule.instrument({
       maxAge: 20,
     }),
+    HttpClientModule,
   ],
   providers: [
     StatusBar,
     SplashScreen,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
+    AppProvidersModule,
   ],
   bootstrap: [AppComponent],
 })

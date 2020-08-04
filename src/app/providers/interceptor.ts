@@ -8,7 +8,7 @@ import {
 import { Injectable } from "@angular/core";
 import { Store } from "@ngrx/store";
 import { Observable } from "rxjs";
-import { AppState } from "../shared/models/app-state.interface";
+import { AppStateInterface } from "../shared/models/storeState.interface";
 
 @Injectable({
   providedIn: "root",
@@ -16,7 +16,7 @@ import { AppState } from "../shared/models/app-state.interface";
 export class AuthorizationTokenInterceptor implements HttpInterceptor {
   token: string;
 
-  constructor(private _store: Store<AppState>) {}
+  constructor(private _store: Store<AppStateInterface>) {}
 
   intercept(
     req: HttpRequest<any>,
