@@ -1,5 +1,5 @@
 import { createAction, props } from "@ngrx/store";
-import { Records } from "src/app/shared/models/records.interface";
+import { Record } from "src/app/shared/models/records.interface";
 
 const FETCH_ALL_RECORDS = "['RECORDS'] Fetch All Records";
 
@@ -11,7 +11,7 @@ export const fetchAllRecords = createAction(FETCH_ALL_RECORDS);
 
 export const fetchAllRecordsSuccess = createAction(
   FETCH_ALL_RECORDS_SUCCESS,
-  props<{ records: Records[] }>()
+  props<{ records: Record[] }>()
 );
 
 export const fetchAllRecordsError = createAction(

@@ -5,3 +5,5 @@ export const ERROR_PASSWORD_INVALID =
   "The password is invalid or the user does not have a password.";
 
 export const PASSWORD_REGEX = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*\d)(?=.*[*\-+_!@#$%^&.,?]).{8,16}$/;
+
+export const REGEX_NAME = /^[A-ZÑÁÉÍÓÚa-zñáéíóú]+((\s)?([A-ZÑÁÉÍÓÚa-zñáéíóú])+)*$/;

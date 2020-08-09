@@ -1,0 +1,83 @@
+@import "../../../../../theme/mixins.scss";
+
+$color-secundary: var(--ion-color-secondary);
+$color-text-tertiary: var(--ion-color-tertiary);
+
+.container {
+  width: 100vw;
+  padding: 20px;
+}
+
+form {
+  height: 100%;
+  .form-input,
+  ion-input {
+    color: $color-text-tertiary;
+    margin-top: 0 20px;
+    width: 100%;
+
+    @include breakpoint-size(ms-extra-small) {
+      font-size: var(--fs-text-xsm);
+    }
+
+    @include breakpoint-size(ms-small) {
+      font-size: var(--fs-text-sm);
+    }
+
+    @include breakpoint-size(ms-extra-large) {
+      font-size: var(--fs-text-xl);
+    }
+  }
+
+  ion-row {
+    ion-item {
+      padding-top: 25px;
+      @include breakpoint-size(ms-extra-small) {
+        font-size: var(--fs-text-xsm);
+      }
+
+      @include breakpoint-size(ms-small) {
+        font-size: var(--fs-text-sm);
+      }
+
+      @include breakpoint-size(ms-extra-large) {
+        font-size: var(--fs-text-xl);
+      }
+    }
+
+    ion-label.ion-label {
+      --color: black;
+      margin: 10px 0;
+
+      @include breakpoint-size(ms-extra-small) {
+        font-size: var(--fs-text-xsm);
+      }
+
+      @include breakpoint-size(ms-small) {
+        font-size: var(--fs-text-sm);
+      }
+
+      @include breakpoint-size(ms-extra-large) {
+        font-size: var(--fs-text-xl);
+      }
+    }
+  }
+
+  .error {
+    margin-top: 2%;
+    color: tomato;
+    height: 2%;
+    transform: 2s;
+    @include breakpoint-size(ms-extra-small) {
+      font-size: var(--fs-text-error-xsm);
+    }
+
+    @include breakpoint-size(ms-small) {
+      font-size: var(--fs-text-error-sm);
+    }
+
+    @include breakpoint-size(ms-extra-large) {
+      font-size: var(--fs-text-error-xl);
+    }
+  }
+}

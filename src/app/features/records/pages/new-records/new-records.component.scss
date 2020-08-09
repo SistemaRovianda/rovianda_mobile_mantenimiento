@@ -1,0 +1,49 @@
+@import "../../../../../theme/mixins.scss";
+
+$color-text-secondary: var(--ion-color-secondary);
+$color-text-tertiary: var(--ion-color-tertiary);
+
+.form {
+  height: 80vh;
+}
+
+.title-menu {
+  color: $color-text-secondary;
+  font-size: 3.8vw;
+  font-weight: bold;
+  margin-left: 5%;
+
+  @include breakpoint-size(ms-extra-small) {
+    font-size: var(--fs-text-title-xsm);
+  }
+
+  @include breakpoint-size(ms-small) {
+    font-size: var(--fs-text-title-sm);
+  }
+
+  @include breakpoint-size(ms-extra-large) {
+    font-size: var(--fs-text-title-xl);
+  }
+}
+
+.footer {
+  ion-button {
+    --ion-color-primary: #e2bd53;
+    text-transform: none;
+
+    ion-grid ion-col {
+      color: white;
+      @include breakpoint-size(ms-extra-small) {
+        font-size: var(--fs-text-xsm) !important;
+      }
+
+      @include breakpoint-size(ms-small) {
+        font-size: var(--fs-text-sm) !important;
+      }
+
+      @include breakpoint-size(ms-extra-large) {
+        font-size: var(--fs-text-xl) !important;
+      }
+    }
+  }
+}

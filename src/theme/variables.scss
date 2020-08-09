@@ -119,3 +119,14 @@ ion-button.ion-color.ion-color-primary {
 ion-item.form-input.ion-no-padding {
   --inner-padding-end: 0;
 }
+.modal-size {
+  border-radius: 5px;
+  --width: 80%;
+  --height: 300px;
+}
+
+.modal-size-detail {
+  border-radius: 5px;
+  --width: 80%;
+  --height: 65vh;
+}

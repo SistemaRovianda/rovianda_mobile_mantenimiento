@@ -25,6 +25,7 @@
           <list-records-card
             *ngFor="let product of products$ | async"
             [product]="product"
+            (click)="openDetail(product)"
           >
           </list-records-card>
         </ion-col>

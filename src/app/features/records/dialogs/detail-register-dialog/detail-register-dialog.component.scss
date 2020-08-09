@@ -1,0 +1,66 @@
+@import "../../../../../theme/mixins.scss";
+
+$color-text-primary: var(--ion-color-primary);
+$color-text-secondary: var(--ion-color-secondary);
+$color-text-tertiary: var(--ion-color-tertiary);
+
+.btn {
+  margin-left: 10px;
+  color: $color-text-primary;
+}
+
+.buttons {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 20px;
+  ion-label,
+  ion-button {
+    @include breakpoint-size(ms-extra-small) {
+      font-size: var(--fs-text-xsm) !important;
+    }
+
+    @include breakpoint-size(ms-small) {
+      font-size: var(--fs-text-sm) !important;
+    }
+
+    @include breakpoint-size(ms-extra-large) {
+      font-size: var(--fs-text-xl) !important;
+    }
+  }
+}
+
+.label {
+  margin-left: 10px;
+  color: $color-text-tertiary;
+  @include breakpoint-size(ms-extra-small) {
+    font-size: var(--fs-text-xsm) !important;
+  }
+
+  @include breakpoint-size(ms-small) {
+    font-size: var(--fs-text-sm) !important;
+  }
+
+  @include breakpoint-size(ms-extra-large) {
+    font-size: var(--fs-text-xl) !important;
+  }
+}
+
+.content {
+  padding: 20px 20px 0 20px;
+}
+
+.title {
+  color: $color-text-secondary;
+  font-weight: bold;
+  @include breakpoint-size(ms-extra-small) {
+    font-size: var(--fs-text-title-xsm);
+  }
+
+  @include breakpoint-size(ms-small) {
+    font-size: var(--fs-text-title-sm);
+  }
+
+  @include breakpoint-size(ms-extra-large) {
+    font-size: var(--fs-text-title-xl);
+  }
+}

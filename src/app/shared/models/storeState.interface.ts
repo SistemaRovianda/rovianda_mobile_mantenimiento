@@ -20,4 +20,5 @@ export interface AppStateInterface {
   auth: AuthenticationUser;
   stepper: SteppersInterface;
   listRecords: any;
+  newRecord: any;
 }

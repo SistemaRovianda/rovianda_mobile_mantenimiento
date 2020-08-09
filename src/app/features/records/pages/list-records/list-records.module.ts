@@ -5,6 +5,7 @@ import { TitleHeaderModule } from "src/app/shared/components/header/header.modul
 import { ListRecordsComponent } from "./list-records.component";
 import { ListRecordsCardModule } from "../../components/list-records-card/list-records-card.module";
 import { RouterModule } from "@angular/router";
+import { DetailRegisterDialogModule } from "../../dialogs/detail-register-dialog/detail-register-dialog.module";
 
 const COMMON_IMPORTS = [
   CommonModule,
@@ -12,6 +13,7 @@ const COMMON_IMPORTS = [
   TitleHeaderModule,
   ListRecordsCardModule,
   RouterModule,
+  DetailRegisterDialogModule,
 ];
 
 const COMMON_DECLARATIONS = [ListRecordsComponent];

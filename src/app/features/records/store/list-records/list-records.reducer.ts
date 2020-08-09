@@ -1,9 +1,9 @@
 import { Action, createReducer, on } from "@ngrx/store";
 import * as fromActions from "./list-records.actions";
-import { Records } from "src/app/shared/models/records.interface";
+import { Record } from "src/app/shared/models/records.interface";
 
 export interface newState {
-  products: Records[];
+  products: Record[];
   error: string;
   loading: boolean;
 }

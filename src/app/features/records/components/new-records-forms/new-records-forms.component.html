@@ -1,3 +1,102 @@
-<p>
-  new-records-forms works!
-</p>
+<form [formGroup]="form" class="container" (ngSubmit)="onSubmit()">
+  <ion-grid fixed>
+    <ion-row>
+      <ion-col>
+        <ion-row>
+          <ion-item class="form-input">
+            <ion-label class="ion-label" position="floating">
+              Título de falla*
+            </ion-label>
+            <ion-input
+              formControlName="typeFailure"
+              placeholder="Ingrese título de falla"
+            ></ion-input>
+          </ion-item>
+        </ion-row>
+        <div class="error">
+          <ion-label
+            *ngIf="
+              form.hasError('required', 'loteId') &&
+              (form.controls.loteId.touched || form.controls.loteId.dirty)
+            "
+          >
+            Este campo es requerido.
+          </ion-label>
+        </div>
+      </ion-col>
+
+      <ion-col>
+        <ion-row>
+          <ion-item class="form-input">
+            <ion-label class="ion-label" position="floating">
+              Título de falla*
+            </ion-label>
+            <ion-input
+              formControlName="dateInit"
+              placeholder="Ingrese título de falla"
+            ></ion-input>
+          </ion-item>
+        </ion-row>
+        <div class="error">
+          <ion-label
+            *ngIf="
+              form.hasError('required', 'dateInit') &&
+              (form.controls.dateInit.touched || form.controls.dateInit.dirty)
+            "
+          >
+            Este campo es requerido.
+          </ion-label>
+        </div>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-item class="form-input">
+        <ion-label class="ion-label" position="floating"
+          >Descripción*</ion-label
+        >
+
+        <ion-input
+          formControlName="description"
+          placeholder="Ingrese descripción"
+        ></ion-input>
+      </ion-item>
+    </ion-row>
+    <div class="error">
+      <ion-label
+        *ngIf="
+          form.hasError('required', 'description') &&
+          (form.controls.description.touched || form.controls.description.dirty)
+        "
+      >
+        Este campo es requerido.
+      </ion-label>
+    </div>
+
+    <ion-row>
+      <ion-item class="form-input">
+        <ion-label class="ion-label" position="floating"
+          >Nombre completo*</ion-label
+        >
+        <ion-input
+          formControlName="fullName"
+          placeholder="Ingrese nombre"
+        ></ion-input>
+      </ion-item>
+    </ion-row>
+    <div class="error">
+      <ion-label
+        *ngIf="
+          form.hasError('required', 'fullName') &&
+          (form.controls.fullName.touched || form.controls.fullName.dirty)
+        "
+      >
+        Este campo es requerido.
+      </ion-label>
+
+      <ion-label *ngIf="form.hasError('pattern', 'fullName')">
+        Solo se aceptan caracteres.
+      </ion-label>
+    </div>
+  </ion-grid>
+</form>
