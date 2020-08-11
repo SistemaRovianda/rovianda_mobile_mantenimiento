@@ -2,6 +2,7 @@ import { Component, EventEmitter, OnInit, Output } from "@angular/core";
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 import { Camera } from "@ionic-native/camera/ngx";
 import { REGEX_NAME } from "src/app/shared/const";
+import * as moment from "moment";
 
 @Component({
   selector: "new-records-forms",
@@ -19,14 +20,15 @@ export class NewRecordsFormsComponent implements OnInit {
       typeFailure: [""],
       description: ["", Validators.required],
       fullName: ["", [Validators.required, Validators.pattern(REGEX_NAME)]],
-      dateInit: ["", Validators.required],
+      dateInit: [new Date().toISOString()],
     });
   }
 
   onSubmit() {
-    const { ...value } = this.form.value;
+    const { dateInit, ...value } = this.form.value;
 
     const payload = {
+      dateInit: moment(dateInit).format("YYYY-MM-DD"),,
       ...value,
     };
 
