@@ -1,0 +1,96 @@
+<form [formGroup]="form" class="container" (ngSubmit)="onSubmit()">
+  <ion-grid fixed>
+    <ion-col>
+      <ion-row>
+        <ion-col size="12">
+          <ion-item>
+            <img *ngIf="imgURL" [src]="imgURL" width="200" height="200" />
+          </ion-item>
+        </ion-col>
+        <ion-col size="12">
+          <ion-button
+            (click)="getCamera()"
+            expand="block"
+            fill="clear"
+            shape="round"
+          >
+            Tomar foto
+          </ion-button>
+        </ion-col>
+      </ion-row>
+    </ion-col>
+    <ion-row>
+      <ion-col>
+        <ion-row>
+          <ion-item class="form-input">
+            <ion-label class="ion-label" position="floating">
+              Máquina que se reparo*
+            </ion-label>
+            <ion-input
+              formControlName="deviceId"
+              placeholder="Seleccione máquina"
+            ></ion-input>
+          </ion-item>
+        </ion-row>
+        <div class="error">
+          <ion-label
+            *ngIf="
+              form.hasError('required', 'deviceId') &&
+              (form.controls.deviceId.touched || form.controls.deviceId.dirty)
+            "
+          >
+            Este campo es requerido.
+          </ion-label>
+        </div>
+      </ion-col>
+
+      <ion-col>
+        <ion-row>
+          <ion-item class="form-input">
+            <ion-label class="ion-label" position="floating">
+              Costo de reparación*
+            </ion-label>
+            <ion-input
+              formControlName="cost"
+              placeholder="Ingrese costo"
+            ></ion-input>
+          </ion-item>
+        </ion-row>
+        <div class="error">
+          <ion-label
+            *ngIf="
+              form.hasError('required', 'cost') &&
+              (form.controls.cost.touched || form.controls.cost.dirty)
+            "
+          >
+            Este campo es requerido.
+          </ion-label>
+        </div>
+      </ion-col>
+    </ion-row>
+    <ion-row class="ion-justify-content-start">
+      <ion-button color="primary" size="large" routerLink="/record/new-machine">
+        Generar máquinas nuevas
+      </ion-button>
+    </ion-row>
+    <ion-row>
+      <ion-item class="form-input">
+        <ion-label class="ion-label" position="floating"
+          >Descripción del arreglo</ion-label
+        >
+
+        <ion-textarea rows="3" formControlName="description"></ion-textarea>
+      </ion-item>
+    </ion-row>
+    <div class="error">
+      <ion-label
+        *ngIf="
+          form.hasError('required', 'description') &&
+          (form.controls.description.touched || form.controls.description.dirty)
+        "
+      >
+        Este campo es requerido.
+      </ion-label>
+    </div>
+  </ion-grid>
+</form>

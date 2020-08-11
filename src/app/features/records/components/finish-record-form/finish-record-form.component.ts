@@ -1,25 +1,24 @@
-import { Component, EventEmitter, OnInit, Output } from "@angular/core";
-import { FormBuilder, FormGroup, Validators } from "@angular/forms";
+import { Component, OnInit, Output, EventEmitter } from "@angular/core";
+import { FormGroup, FormBuilder, Validators } from "@angular/forms";
 import { Camera } from "@ionic-native/camera/ngx";
-import { REGEX_NAME } from "src/app/shared/const";
 
 @Component({
-  selector: "new-records-forms",
-  templateUrl: "./new-records-forms.component.html",
-  styleUrls: ["./new-records-forms.component.scss"],
+  selector: "finish-record-form",
+  templateUrl: "./finish-record-form.component.html",
+  styleUrls: ["./finish-record-form.component.scss"],
 })
-export class NewRecordsFormsComponent implements OnInit {
+export class FinishRecordFormComponent implements OnInit {
   form: FormGroup;
   imgURL: string;
   @Output("onSubmit") submit = new EventEmitter();
 
   constructor(private fb: FormBuilder, private camera: Camera) {
     this.form = fb.group({
-      photo: [""],
-      typeFailure: [""],
-      description: ["", Validators.required],
-      fullName: ["", [Validators.required, Validators.pattern(REGEX_NAME)]],
-      dateInit: ["", Validators.required],
+      description: [""],
+      image: ["", Validators.required],
+      storeId: ["", Validators.required],
+      cost: ["", Validators.required],
+      deviceId: ["", Validators.required],
     });
   }
 

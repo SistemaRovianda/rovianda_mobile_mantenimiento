@@ -1,0 +1,65 @@
+<form [formGroup]="form" class="container" (ngSubmit)="onSubmit()">
+  <ion-grid fixed>
+    <ion-col>
+      <ion-col>
+        <ion-row>
+          <ion-item class="form-input">
+            <ion-label class="ion-label" position="floating">
+              Nombre de tienda*
+            </ion-label>
+            <ion-input formControlName="name"></ion-input>
+          </ion-item>
+        </ion-row>
+        <div class="error">
+          <ion-label
+            *ngIf="
+              form.hasError('required', 'name') &&
+              (form.controls.name.touched || form.controls.name.dirty)
+            "
+          >
+            Este campo es requerido.
+          </ion-label>
+        </div>
+      </ion-col>
+
+      <ion-col>
+        <ion-row>
+          <ion-item class="form-input">
+            <ion-label class="ion-label" position="floating">
+              Calle
+            </ion-label>
+            <ion-input formControlName="location"> </ion-input>
+          </ion-item>
+        </ion-row>
+        <div class="error">
+          <ion-label
+            *ngIf="
+              form.hasError('required', 'location') &&
+              (form.controls.location.touched || form.controls.location.dirty)
+            "
+          >
+            Este campo es requerido.
+          </ion-label>
+        </div>
+      </ion-col>
+    </ion-col>
+
+    <ion-row>
+      <ion-item class="form-input">
+        <ion-label class="ion-label" position="floating">Referencias</ion-label>
+
+        <ion-textarea rows="3" formControlName="reference"></ion-textarea>
+      </ion-item>
+    </ion-row>
+    <div class="error">
+      <ion-label
+        *ngIf="
+          form.hasError('required', 'reference') &&
+          (form.controls.reference.touched || form.controls.reference.dirty)
+        "
+      >
+        Este campo es requerido.
+      </ion-label>
+    </div>
+  </ion-grid>
+</form>

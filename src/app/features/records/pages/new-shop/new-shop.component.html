@@ -1,0 +1,31 @@
+<ion-content>
+  <title-header
+    [titlePath]="'Regresar'"
+    [title]="'Mantenimiento'"
+    (onBack)="back($event)"
+  ></title-header>
+
+  <ion-grid class="form">
+    <ion-col>
+      <ion-row>
+        <h1 class="title-menu">Agregar tienda</h1>
+      </ion-row>
+      <ion-row>
+        <new-shop-form #form (onSubmit)="onSubmit($event)"></new-shop-form>
+      </ion-row>
+    </ion-col>
+  </ion-grid>
+
+  <ion-grid class="footer">
+    <ion-row class="ion-justify-content-center">
+      <ion-button color="primary" size="large">
+        <ion-grid>
+          <ion-col>
+            Guardar
+          </ion-col>
+          <ion-spinner *ngIf="false" name="crescent"></ion-spinner>
+        </ion-grid>
+      </ion-button>
+    </ion-row>
+  </ion-grid>
+</ion-content>

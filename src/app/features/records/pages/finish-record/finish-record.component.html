@@ -1,0 +1,38 @@
+<ion-content>
+  <title-header
+    [titlePath]="'Regresar'"
+    [title]="'Mantenimiento'"
+    (onBack)="back($event)"
+  ></title-header>
+
+  <ion-grid class="form">
+    <ion-col>
+      <ion-row>
+        <h1 class="title-menu">Terminar</h1>
+      </ion-row>
+      <ion-row>
+        <finish-record-form
+          #form
+          (onSubmit)="onSubmit($event)"
+        ></finish-record-form>
+      </ion-row>
+    </ion-col>
+  </ion-grid>
+
+  <ion-grid class="footer">
+    <ion-row class="ion-justify-content-center">
+      <ion-button color="primary" size="large">
+        <ion-grid>
+          <ion-col>
+            Terminar
+          </ion-col>
+          <ion-spinner *ngIf="false" name="crescent"></ion-spinner>
+        </ion-grid>
+      </ion-button>
+
+      <ion-button color="secondary" size="large" routerLink="/record/new-shop">
+        Agregar tienda
+      </ion-button>
+    </ion-row>
+  </ion-grid>
+</ion-content>

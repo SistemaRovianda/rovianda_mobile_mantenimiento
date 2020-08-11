@@ -10,6 +10,8 @@ import { MessageDialogComponent } from "../../dialogs/message-dialog/message-dia
   styleUrls: ["./new-records.component.scss"],
 })
 export class NewRecordsComponent implements OnInit {
+  imgURL: string;
+
   constructor(
     private router: Router,
     public modalController: ModalController

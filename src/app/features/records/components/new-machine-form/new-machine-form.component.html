@@ -1,0 +1,100 @@
+<form [formGroup]="form" class="container" (ngSubmit)="onSubmit()">
+  <ion-grid fixed>
+    <ion-col>
+      <ion-col>
+        <ion-row>
+          <ion-item class="form-input">
+            <ion-label class="ion-label" position="floating">
+              Nombre*
+            </ion-label>
+            <ion-input formControlName="name"></ion-input>
+          </ion-item>
+        </ion-row>
+        <div class="error">
+          <ion-label
+            *ngIf="
+              form.hasError('required', 'name') &&
+              (form.controls.name.touched || form.controls.name.dirty)
+            "
+          >
+            Este campo es requerido.
+          </ion-label>
+        </div>
+      </ion-col>
+
+      <ion-col>
+        <ion-row>
+          <ion-item class="form-input">
+            <ion-label class="ion-label" position="floating">
+              Tienda
+            </ion-label>
+            <ion-input></ion-input>
+          </ion-item>
+        </ion-row>
+        <div class="error">
+          <ion-label
+            *ngIf="
+              form.hasError('required', 'cost') &&
+              (form.controls.cost.touched || form.controls.cost.dirty)
+            "
+          >
+            Este campo es requerido.
+          </ion-label>
+        </div>
+      </ion-col>
+
+      <ion-col>
+        <ion-row>
+          <ion-item class="form-input">
+            <ion-label class="ion-label" position="floating">
+              Modelo
+            </ion-label>
+            <ion-input formControlName="model"></ion-input>
+          </ion-item>
+        </ion-row>
+        <div class="error">
+          <ion-label
+            *ngIf="
+              form.hasError('required', 'model') &&
+              (form.controls.model.touched || form.controls.model.dirty)
+            "
+          >
+            Este campo es requerido.
+          </ion-label>
+        </div>
+      </ion-col>
+
+      <ion-row>
+        <ion-item class="form-input">
+          <ion-label class="ion-label" position="floating">Fecha</ion-label>
+          <ion-datetime
+            formControlName="date"
+            displayFormat="DD/MM/YYYY"
+            readonly
+          >
+          </ion-datetime>
+        </ion-item>
+      </ion-row>
+    </ion-col>
+
+    <ion-row>
+      <ion-item class="form-input">
+        <ion-label class="ion-label" position="floating"
+          >Descripción de la máquina</ion-label
+        >
+
+        <ion-textarea rows="3" formControlName="description"></ion-textarea>
+      </ion-item>
+    </ion-row>
+    <div class="error">
+      <ion-label
+        *ngIf="
+          form.hasError('required', 'description') &&
+          (form.controls.description.touched || form.controls.description.dirty)
+        "
+      >
+        Este campo es requerido.
+      </ion-label>
+    </div>
+  </ion-grid>
+</form>

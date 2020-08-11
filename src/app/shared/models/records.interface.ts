@@ -11,3 +11,18 @@ export interface NewRecord {
   fullName: string;
   dateInit: string;
 }
+
+interface FinishRecord {
+  description: string;
+  image: string;
+  storeId: number;
+  cost: number;
+  deviceId: number;
+}
+
+interface Machine {
+  name: string;
+  model: string;
+  costDevice: number;
+  storeId: number;
+}

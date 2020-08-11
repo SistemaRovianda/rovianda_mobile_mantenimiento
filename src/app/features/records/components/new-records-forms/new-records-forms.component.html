@@ -3,26 +3,22 @@
     <ion-row>
       <ion-col>
         <ion-row>
-          <ion-item class="form-input">
-            <ion-label class="ion-label" position="floating">
-              Título de falla*
-            </ion-label>
-            <ion-input
-              formControlName="typeFailure"
-              placeholder="Ingrese título de falla"
-            ></ion-input>
-          </ion-item>
+          <ion-col size="12">
+            <ion-item>
+              <img *ngIf="imgURL" [src]="imgURL" width="200" height="200" />
+            </ion-item>
+          </ion-col>
+          <ion-col size="12">
+            <ion-button
+              (click)="getCamera()"
+              expand="block"
+              fill="clear"
+              shape="round"
+            >
+              Tomar foto
+            </ion-button>
+          </ion-col>
         </ion-row>
-        <div class="error">
-          <ion-label
-            *ngIf="
-              form.hasError('required', 'loteId') &&
-              (form.controls.loteId.touched || form.controls.loteId.dirty)
-            "
-          >
-            Este campo es requerido.
-          </ion-label>
-        </div>
       </ion-col>
 
       <ion-col>

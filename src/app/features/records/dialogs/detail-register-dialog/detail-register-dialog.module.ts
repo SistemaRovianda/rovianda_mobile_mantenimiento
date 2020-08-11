@@ -2,8 +2,9 @@ import { NgModule } from "@angular/core";
 import { CommonModule } from "@angular/common";
 import { IonicModule } from "@ionic/angular";
 import { DetailRegisterDialogComponent } from "./detail-register-dialog.component";
+import { RouterModule } from "@angular/router";
 
-const COMMON_IMPORTS = [CommonModule, IonicModule];
+const COMMON_IMPORTS = [CommonModule, IonicModule, RouterModule];
 
 const COMMON_DECLARATIONS = [DetailRegisterDialogComponent];
 
