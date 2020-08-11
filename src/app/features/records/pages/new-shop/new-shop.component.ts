@@ -1,6 +1,8 @@
 import { Component, OnInit } from "@angular/core";
 import { Router } from "@angular/router";
 import { ModalController } from "@ionic/angular";
+import { Shop } from "src/app/shared/models/records.interface";
+import { MessageShopDialogComponent } from "../../dialogs/message-shop-dialog/message-shop-dialog.component";
 
 @Component({
   selector: "app-new-shop",
@@ -19,5 +21,18 @@ export class NewShopComponent implements OnInit {
     this.router.navigate(["menu"]);
   }
 
-  onSubmit(payload) {}
+  onSubmit(payload) {
+    this.openModal(payload);
+  }
+
+  async openModal(payload: Shop) {
+    const modal = await this.modalController.create({
+      component: MessageShopDialogComponent,
+      cssClass: "modal-size",
+      componentProps: {
+        newRecord: payload,
+      },
+    });
+    return await modal.present();
+  }
 }

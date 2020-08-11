@@ -12,7 +12,7 @@ export interface NewRecord {
   dateInit: string;
 }
 
-interface FinishRecord {
+export interface FinishRecord {
   description: string;
   image: string;
   storeId: number;
@@ -20,9 +20,15 @@ interface FinishRecord {
   deviceId: number;
 }
 
-interface Machine {
+export interface Machine {
   name: string;
   model: string;
   costDevice: number;
   storeId: number;
+}
+
+export interface Shop {
+  name: string;
+  location: string;
+  reference: string;
 }

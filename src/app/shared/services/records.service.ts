@@ -2,7 +2,12 @@ import { HttpClient } from "@angular/common/http";
 import { Inject, Injectable } from "@angular/core";
 import { Observable } from "rxjs";
 import { API_ENDPOINT_PROVIDER } from "src/app/providers/tokens";
-import { NewRecord } from "../models/records.interface";
+import {
+  NewRecord,
+  FinishRecord,
+  Shop,
+  Machine,
+} from "../models/records.interface";
 
 @Injectable({
   providedIn: "root",
@@ -22,6 +27,18 @@ export class RecordsService {
   }
 
   newRecord(body: NewRecord): Observable<any> {
+    return this.http.post(`${this.url}`, body);
+  }
+
+  finishRecord(body: FinishRecord): Observable<any> {
+    return this.http.put(`${this.url}`, body);
+  }
+
+  newShop(body: Shop): Observable<any> {
+    return this.http.post(`${this.url}`, body);
+  }
+
+  newMachine(body: Machine): Observable<any> {
     return this.http.post(`${this.url}`, body);
   }
 }

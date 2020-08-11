@@ -5,6 +5,7 @@ import { TitleHeaderModule } from "src/app/shared/components/header/header.modul
 import { FinishRecordFormModule } from "../../components/finish-record-form/finish-record-form.module";
 import { FinishRecordComponent } from "./finish-record.component";
 import { RouterModule } from "@angular/router";
+import { MessageFinishDialogModule } from "../../dialogs/message-finish-dialog/message-finish-dialog.module";
 
 const COMMON_IMPORTS = [
   CommonModule,
@@ -12,6 +13,7 @@ const COMMON_IMPORTS = [
   TitleHeaderModule,
   FinishRecordFormModule,
   RouterModule,
+  MessageFinishDialogModule,
 ];
 
 const COMMON_DECLARATIONS = [FinishRecordComponent];
