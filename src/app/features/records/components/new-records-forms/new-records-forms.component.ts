@@ -28,7 +28,7 @@ export class NewRecordsFormsComponent implements OnInit {
     const { dateInit, ...value } = this.form.value;
 
     const payload = {
-      dateInit: moment(dateInit).format("YYYY-MM-DD"),,
+      dateInit: moment(dateInit).format("YYYY-MM-DD"),
       ...value,
     };
 
