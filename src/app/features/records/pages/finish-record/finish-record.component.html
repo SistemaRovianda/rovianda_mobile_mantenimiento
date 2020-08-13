@@ -14,6 +14,8 @@
         <finish-record-form
           #form
           (onSubmit)="onSubmit($event)"
+          [machines]="machines$ | async"
+          [shops]="shops$ | async"
         ></finish-record-form>
       </ion-row>
     </ion-col>
@@ -21,17 +23,18 @@
 
   <ion-grid class="footer">
     <ion-row class="ion-justify-content-center">
-      <ion-button color="primary" size="large">
+      <ion-button
+        color="primary"
+        size="large"
+        (click)="form.onSubmit()"
+        [disabled]="form.form.invalid"
+      >
         <ion-grid>
           <ion-col>
             Terminar
           </ion-col>
           <ion-spinner *ngIf="false" name="crescent"></ion-spinner>
         </ion-grid>
-      </ion-button>
-
-      <ion-button color="secondary" size="large" routerLink="/record/new-shop">
-        Agregar tienda
       </ion-button>
     </ion-row>
   </ion-grid>

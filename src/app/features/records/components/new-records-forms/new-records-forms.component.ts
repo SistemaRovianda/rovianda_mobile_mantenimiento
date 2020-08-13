@@ -16,7 +16,7 @@ export class NewRecordsFormsComponent implements OnInit {
 
   constructor(private fb: FormBuilder, private camera: Camera) {
     this.form = fb.group({
-      photo: [""],
+      image: [""],
       typeFailure: [""],
       description: ["", Validators.required],
       fullName: ["", [Validators.required, Validators.pattern(REGEX_NAME)]],
@@ -39,8 +39,8 @@ export class NewRecordsFormsComponent implements OnInit {
     console.log(this.imgURL);
   }
 
-  get photo() {
-    return this.form.get("photo");
+  get image() {
+    return this.form.get("image");
   }
 
   getCamera() {
@@ -53,7 +53,7 @@ export class NewRecordsFormsComponent implements OnInit {
       })
       .then((res) => {
         this.imgURL = "data:image/jpeg;base64," + res;
-        this.form.get("photo").setValue(res);
+        this.form.get("image").setValue(res);
       })
       .catch((err) => console.error("Error en la toma de fotografia"));
   }

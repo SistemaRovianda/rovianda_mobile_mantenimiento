@@ -11,9 +11,10 @@ $color-text-tertiary: var(--ion-color-tertiary);
 form {
   height: 100%;
   .form-input,
-  ion-input {
+  ion-input,
+  ion-select {
     color: $color-text-tertiary;
-    margin-top: 0 20px;
+    margin-top: 0 10px;
     width: 100%;
 
     @include breakpoint-size(ms-extra-small) {
@@ -31,7 +32,7 @@ form {
 
   ion-row {
     ion-item {
-      padding-top: 25px;
+      padding-top: 15px;
       @include breakpoint-size(ms-extra-small) {
         font-size: var(--fs-text-xsm);
       }

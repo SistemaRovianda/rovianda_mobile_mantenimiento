@@ -28,6 +28,7 @@ export interface Machine {
 }
 
 export interface Shop {
+  storeId?: number;
   name: string;
   location: string;
   reference: string;

@@ -18,7 +18,7 @@ export class NewShopComponent implements OnInit {
   ngOnInit() {}
 
   back() {
-    this.router.navigate(["menu"]);
+    this.router.navigate(["record/finish"]);
   }
 
   onSubmit(payload) {
@@ -30,7 +30,7 @@ export class NewShopComponent implements OnInit {
       component: MessageShopDialogComponent,
       cssClass: "modal-size",
       componentProps: {
-        newRecord: payload,
+        shop: payload,
       },
     });
     return await modal.present();

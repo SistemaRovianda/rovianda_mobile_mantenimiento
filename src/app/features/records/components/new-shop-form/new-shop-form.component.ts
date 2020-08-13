@@ -15,7 +15,7 @@ export class NewShopFormComponent implements OnInit {
     this.form = fb.group({
       name: ["", [Validators.required, Validators.pattern(REGEX_NAME)]],
       location: ["", Validators.required],
-      reference: [""],
+      reference: ["", Validators.required],
     });
   }
 

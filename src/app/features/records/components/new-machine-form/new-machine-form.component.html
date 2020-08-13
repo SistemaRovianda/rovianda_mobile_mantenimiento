@@ -28,7 +28,17 @@
             <ion-label class="ion-label" position="floating">
               Tienda
             </ion-label>
-            <ion-input></ion-input>
+            <ion-select
+              formControlName="storeId"
+              placeholder="Seleccione tienda"
+              interface="action-sheet"
+            >
+              <ng-container *ngFor="let shop of shops">
+                <ion-select-option [value]="shop.storeId">
+                  {{ shop.name }}
+                </ion-select-option>
+              </ng-container>
+            </ion-select>
           </ion-item>
         </ion-row>
         <div class="error">
@@ -47,7 +57,7 @@
         <ion-row>
           <ion-item class="form-input">
             <ion-label class="ion-label" position="floating">
-              Modelo
+              Modelo*
             </ion-label>
             <ion-input formControlName="model"></ion-input>
           </ion-item>
@@ -64,14 +74,32 @@
         </div>
       </ion-col>
 
+      <ion-col>
+        <ion-row>
+          <ion-item class="form-input">
+            <ion-label class="ion-label" position="floating">
+              Precio*
+            </ion-label>
+            <ion-input formControlName="costDevice" type="number"></ion-input>
+          </ion-item>
+        </ion-row>
+        <div class="error">
+          <ion-label
+            *ngIf="
+              form.hasError('required', 'costDevice') &&
+              (form.controls.costDevice.touched ||
+                form.controls.costDevice.dirty)
+            "
+          >
+            Este campo es requerido.
+          </ion-label>
+        </div>
+      </ion-col>
+
       <ion-row>
         <ion-item class="form-input">
-          <ion-label class="ion-label" position="floating">Fecha</ion-label>
-          <ion-datetime
-            formControlName="date"
-            displayFormat="DD/MM/YYYY"
-            readonly
-          >
+          <ion-label class="ion-label" position="floating">Fecha*</ion-label>
+          <ion-datetime formControlName="date" displayFormat="DD/MM/YYYY">
           </ion-datetime>
         </ion-item>
       </ion-row>
@@ -80,7 +108,7 @@
     <ion-row>
       <ion-item class="form-input">
         <ion-label class="ion-label" position="floating"
-          >Descripción de la máquina</ion-label
+          >Descripción de la máquina*</ion-label
         >
 
         <ion-textarea rows="3" formControlName="description"></ion-textarea>

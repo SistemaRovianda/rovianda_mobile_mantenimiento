@@ -3,8 +3,14 @@
     <ion-col>
       <ion-row>
         <ion-col size="12">
-          <ion-item>
-            <img *ngIf="imgURL" [src]="imgURL" width="200" height="200" />
+          <div class="image" *ngIf="!imgURL">
+            <ion-icon
+              src="/assets/icons/camera.svg"
+              class="image-icon"
+            ></ion-icon>
+          </div>
+          <ion-item *ngIf="imgURL">
+            <img [src]="imgURL" width="200" height="200" />
           </ion-item>
         </ion-col>
         <ion-col size="12">
@@ -26,10 +32,18 @@
             <ion-label class="ion-label" position="floating">
               Máquina que se reparo*
             </ion-label>
-            <ion-input
+            <ion-select
               formControlName="deviceId"
               placeholder="Seleccione máquina"
-            ></ion-input>
+              interface="action-sheet"
+              (ionBlur)="change()"
+            >
+              <ng-container *ngFor="let machine of machines">
+                <ion-select-option [value]="machine">
+                  {{ machine.name }}
+                </ion-select-option>
+              </ng-container>
+            </ion-select>
           </ion-item>
         </ion-row>
         <div class="error">
@@ -48,19 +62,26 @@
         <ion-row>
           <ion-item class="form-input">
             <ion-label class="ion-label" position="floating">
-              Costo de reparación*
+              Tienda*
             </ion-label>
-            <ion-input
-              formControlName="cost"
-              placeholder="Ingrese costo"
-            ></ion-input>
+            <ion-select
+              formControlName="storeId"
+              placeholder="Seleccione tienda"
+              interface="action-sheet"
+            >
+              <ng-container *ngFor="let shop of shops">
+                <ion-select-option [value]="shop.storeId">
+                  {{ shop.name }}
+                </ion-select-option>
+              </ng-container>
+            </ion-select>
           </ion-item>
         </ion-row>
         <div class="error">
           <ion-label
             *ngIf="
-              form.hasError('required', 'cost') &&
-              (form.controls.cost.touched || form.controls.cost.dirty)
+              form.hasError('required', 'deviceId') &&
+              (form.controls.deviceId.touched || form.controls.deviceId.dirty)
             "
           >
             Este campo es requerido.
@@ -69,10 +90,43 @@
       </ion-col>
     </ion-row>
     <ion-row class="ion-justify-content-start">
-      <ion-button color="primary" size="large" routerLink="/record/new-machine">
-        Generar máquinas nuevas
+      <ion-button
+        color="primary"
+        class="ion-padding-end"
+        size="large"
+        routerLink="/record/new-machine"
+      >
+        Agregar máquinas
+      </ion-button>
+
+      <ion-button color="secondary" size="large" routerLink="/record/new-shop">
+        Agregar tienda
       </ion-button>
     </ion-row>
+
+    <ion-col>
+      <ion-row>
+        <ion-item class="form-input">
+          <ion-label class="ion-label" position="floating">
+            Costo de reparación*
+          </ion-label>
+          <ion-input
+            formControlName="cost"
+            placeholder="Ingrese costo"
+          ></ion-input>
+        </ion-item>
+      </ion-row>
+      <div class="error">
+        <ion-label
+          *ngIf="
+            form.hasError('required', 'cost') &&
+            (form.controls.cost.touched || form.controls.cost.dirty)
+          "
+        >
+          Este campo es requerido.
+        </ion-label>
+      </div>
+    </ion-col>
     <ion-row>
       <ion-item class="form-input">
         <ion-label class="ion-label" position="floating"

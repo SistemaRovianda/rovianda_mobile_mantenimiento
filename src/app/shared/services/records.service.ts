@@ -35,10 +35,18 @@ export class RecordsService {
   }
 
   newShop(body: Shop): Observable<any> {
-    return this.http.post(`${this.url}`, body);
+    return this.http.post(`${this.url}/store`, body);
   }
 
   newMachine(body: Machine): Observable<any> {
-    return this.http.post(`${this.url}`, body);
+    return this.http.post(`${this.url}/device`, body);
+  }
+
+  getMachines(): Observable<any> {
+    return this.http.get(`${this.url}`);
+  }
+
+  getShops(): Observable<any> {
+    return this.http.get<Shop[]>(`${this.url}/stores`);
   }
 }

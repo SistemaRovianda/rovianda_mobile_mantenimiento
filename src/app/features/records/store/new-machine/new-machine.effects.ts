@@ -5,18 +5,20 @@ import { catchError, exhaustMap, map } from "rxjs/operators";
 import { RecordsService } from "src/app/shared/services/records.service";
 import { ToastService } from "src/app/shared/Services/toast.service";
 import * as fromActions from "./new-machine.actions";
+import { Router } from "@angular/router";
 
 @Injectable({
   providedIn: "root",
 })
-export class NewRecordEffects {
+export class NewMachineEffects {
   constructor(
     private actions$: Actions,
     private recordService: RecordsService,
-    private toastService: ToastService
+    private toastService: ToastService,
+    private router: Router
   ) {}
 
-  openLote$ = createEffect(() =>
+  newMachine$ = createEffect(() =>
     this.actions$.pipe(
       ofType(fromActions.newMachine),
       exhaustMap((action) =>
@@ -28,11 +30,12 @@ export class NewRecordEffects {
     )
   );
 
-  openLotSuccessEffect$ = createEffect(
+  newMachineSuccessEffect$ = createEffect(
     () =>
       this.actions$.pipe(
         ofType(fromActions.newMachineSuccess),
         exhaustMap((_) => {
+          this.router.navigate(["record/finish"]);
           this.toastService.presentToastSuccess();
           return [];
         })
@@ -42,7 +45,7 @@ export class NewRecordEffects {
     }
   );
 
-  openLotErrorEffect$ = createEffect(
+  newMachinerrorEffect$ = createEffect(
     () =>
       this.actions$.pipe(
         ofType(fromActions.newMachineError),

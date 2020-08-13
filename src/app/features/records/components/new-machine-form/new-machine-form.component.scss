@@ -31,7 +31,7 @@ form {
 
   ion-row {
     ion-item {
-      padding-top: 25px;
+      padding-top: 5px;
       @include breakpoint-size(ms-extra-small) {
         font-size: var(--fs-text-xsm);
       }

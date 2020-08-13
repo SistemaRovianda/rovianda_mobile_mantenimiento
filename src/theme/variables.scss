@@ -130,3 +130,18 @@ ion-item.form-input.ion-no-padding {
   --width: 80%;
   --height: 65vh;
 }
+
+.image {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: auto;
+  height: 200px;
+  background-color: #ededed;
+  border-radius: 10px;
+
+  &-icon {
+    font-size: 90px;
+    fill: var(--ion-color-tertiary);
+  }
+}

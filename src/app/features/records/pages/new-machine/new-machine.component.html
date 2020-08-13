@@ -14,6 +14,7 @@
         <new-machine-form
           #form
           (onSubmit)="onSubmit($event)"
+          [shops]="shops$ | async"
         ></new-machine-form>
       </ion-row>
     </ion-col>
@@ -21,7 +22,12 @@
 
   <ion-grid class="footer">
     <ion-row class="ion-justify-content-center">
-      <ion-button color="primary" size="large">
+      <ion-button
+        color="primary"
+        size="large"
+        (click)="form.onSubmit()"
+        [disabled]="form.form.invalid"
+      >
         <ion-grid>
           <ion-col>
             Terminar

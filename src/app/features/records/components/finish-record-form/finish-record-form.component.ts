@@ -1,6 +1,7 @@
-import { Component, OnInit, Output, EventEmitter } from "@angular/core";
+import { Component, OnInit, Output, EventEmitter, Input } from "@angular/core";
 import { FormGroup, FormBuilder, Validators } from "@angular/forms";
 import { Camera } from "@ionic-native/camera/ngx";
+import { Machine, Shop } from "src/app/shared/models/records.interface";
 
 @Component({
   selector: "finish-record-form",
@@ -11,6 +12,9 @@ export class FinishRecordFormComponent implements OnInit {
   form: FormGroup;
   imgURL: string;
   @Output("onSubmit") submit = new EventEmitter();
+
+  @Input() machines: Machine;
+  @Input() shops: Shop;
 
   constructor(private fb: FormBuilder, private camera: Camera) {
     this.form = fb.group({
@@ -32,9 +36,7 @@ export class FinishRecordFormComponent implements OnInit {
     this.submit.emit(payload);
   }
 
-  ngOnInit() {
-    console.log(this.imgURL);
-  }
+  ngOnInit() {}
 
   get photo() {
     return this.form.get("photo");
@@ -53,5 +55,10 @@ export class FinishRecordFormComponent implements OnInit {
         this.form.get("photo").setValue(res);
       })
       .catch((err) => console.error("Error en la toma de fotografia"));
+  }
+
+  change() {
+    // const value: lotResponse = this.form.get("loteId").value;
+    // this.filterProducts = value.products;
   }
 }

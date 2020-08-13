@@ -16,7 +16,7 @@ export class FinishRecordEffects {
     private toastService: ToastService
   ) {}
 
-  openLote$ = createEffect(() =>
+  finishRecord$ = createEffect(() =>
     this.actions$.pipe(
       ofType(fromActions.fininshRecord),
       exhaustMap((action) =>
@@ -28,7 +28,7 @@ export class FinishRecordEffects {
     )
   );
 
-  openLotSuccessEffect$ = createEffect(
+  finishRecordSuccessEffect$ = createEffect(
     () =>
       this.actions$.pipe(
         ofType(fromActions.fininshRecordSuccess),
@@ -42,7 +42,7 @@ export class FinishRecordEffects {
     }
   );
 
-  openLotErrorEffect$ = createEffect(
+  finishRecordErrorEffect$ = createEffect(
     () =>
       this.actions$.pipe(
         ofType(fromActions.fininshRecordError),

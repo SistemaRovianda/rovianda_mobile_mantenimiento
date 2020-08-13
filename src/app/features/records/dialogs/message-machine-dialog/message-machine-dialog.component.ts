@@ -25,6 +25,8 @@ export class MessageMachineDialogComponent implements OnInit {
   }
 
   save() {
+    console.log(this.machine);
+
     this.store.dispatch(
       fromActions.newMachine({
         payload: this.machine,
