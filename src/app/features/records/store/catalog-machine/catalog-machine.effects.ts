@@ -14,7 +14,7 @@ export class CatalogMachinesEffects {
     private recordService: RecordsService
   ) {}
 
-  products$ = createEffect(() =>
+  catalogMachine$ = createEffect(() =>
     this.actions$.pipe(
       ofType(fromActions.fetchAllMachine),
       exhaustMap((action) =>

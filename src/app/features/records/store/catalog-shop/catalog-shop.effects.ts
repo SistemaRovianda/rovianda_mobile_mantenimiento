@@ -14,7 +14,7 @@ export class CatalogShopEffects {
     private recordService: RecordsService
   ) {}
 
-  products$ = createEffect(() =>
+  catalogShop$ = createEffect(() =>
     this.actions$.pipe(
       ofType(fromActions.fetchAllShop),
       exhaustMap((action) =>

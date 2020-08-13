@@ -14,7 +14,7 @@ export class ListRecordsEffects {
     private recordsService: RecordsService
   ) {}
 
-  products$ = createEffect(() =>
+  list$ = createEffect(() =>
     this.actions$.pipe(
       ofType(fromActions.fetchAllRecords),
       exhaustMap(() =>
