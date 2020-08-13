@@ -33,3 +33,17 @@ export interface Shop {
   location: string;
   reference: string;
 }
+
+export interface CatalogMachines {
+  storeId: number;
+  name: string;
+  devices: Device[];
+}
+
+export interface Device {
+  id: number;
+  name: string;
+  model: string;
+  cost: number;
+  description: string;
+}

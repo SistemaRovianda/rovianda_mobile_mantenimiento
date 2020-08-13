@@ -1,9 +1,9 @@
 import { createReducer, on } from "@ngrx/store";
+import { CatalogMachines } from "src/app/shared/models/records.interface";
 import * as fromActions from "./catalog-machine.actions";
-import { Machine } from "src/app/shared/models/records.interface";
 
 export interface stateMachines {
-  entity: Machine[];
+  entity: CatalogMachines[];
   error: string;
   loading: boolean;
 }

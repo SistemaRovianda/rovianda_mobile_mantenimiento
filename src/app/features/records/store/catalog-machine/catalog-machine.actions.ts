@@ -1,5 +1,5 @@
 import { createAction, props } from "@ngrx/store";
-import { Machine } from "src/app/shared/models/records.interface";
+import { CatalogMachines } from "src/app/shared/models/records.interface";
 
 const FETCH_ALL_MACHINE = "['MACHINE'] Fetch All Machine";
 
@@ -11,7 +11,7 @@ export const fetchAllMachine = createAction(FETCH_ALL_MACHINE);
 
 export const fetchAllMachineSuccess = createAction(
   FETCH_ALL_MACHINE_SUCCESS,
-  props<{ payload: Machine[] }>()
+  props<{ payload: CatalogMachines[] }>()
 );
 
 export const fetchAllMachineError = createAction(

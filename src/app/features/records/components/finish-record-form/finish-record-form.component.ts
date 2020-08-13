@@ -1,7 +1,11 @@
-import { Component, OnInit, Output, EventEmitter, Input } from "@angular/core";
-import { FormGroup, FormBuilder, Validators } from "@angular/forms";
+import { Component, EventEmitter, Input, OnInit, Output } from "@angular/core";
+import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 import { Camera } from "@ionic-native/camera/ngx";
-import { Machine, Shop } from "src/app/shared/models/records.interface";
+import {
+  CatalogMachines,
+  Shop,
+  Device,
+} from "src/app/shared/models/records.interface";
 
 @Component({
   selector: "finish-record-form",
@@ -13,8 +17,9 @@ export class FinishRecordFormComponent implements OnInit {
   imgURL: string;
   @Output("onSubmit") submit = new EventEmitter();
 
-  @Input() machines: Machine;
+  @Input() machines: CatalogMachines[];
   @Input() shops: Shop;
+  filterMachines: Device[] = [];
 
   constructor(private fb: FormBuilder, private camera: Camera) {
     this.form = fb.group({
@@ -58,7 +63,10 @@ export class FinishRecordFormComponent implements OnInit {
   }
 
   change() {
-    // const value: lotResponse = this.form.get("loteId").value;
-    // this.filterProducts = value.products;
+    const storeId = this.form.get("storeId").value;
+    const machines = this.machines.filter((data) => data.storeId == storeId);
+    this.filterMachines = machines[0].devices;
+
+    console.log("f ", this.filterMachines);
   }
 }

@@ -30,17 +30,17 @@
         <ion-row>
           <ion-item class="form-input">
             <ion-label class="ion-label" position="floating">
-              Máquina que se reparo*
+              Tienda*
             </ion-label>
             <ion-select
-              formControlName="deviceId"
-              placeholder="Seleccione máquina"
+              formControlName="storeId"
+              placeholder="Seleccione tienda"
               interface="action-sheet"
               (ionBlur)="change()"
             >
-              <ng-container *ngFor="let machine of machines">
-                <ion-select-option [value]="machine">
-                  {{ machine.name }}
+              <ng-container *ngFor="let shop of shops">
+                <ion-select-option [value]="shop.storeId">
+                  {{ shop.name }}
                 </ion-select-option>
               </ng-container>
             </ion-select>
@@ -62,16 +62,17 @@
         <ion-row>
           <ion-item class="form-input">
             <ion-label class="ion-label" position="floating">
-              Tienda*
+              Máquina que se reparo*
             </ion-label>
             <ion-select
-              formControlName="storeId"
-              placeholder="Seleccione tienda"
+              formControlName="deviceId"
+              placeholder="Seleccione máquina"
               interface="action-sheet"
+              [disabled]="filterMachines.length == 0"
             >
-              <ng-container *ngFor="let shop of shops">
-                <ion-select-option [value]="shop.storeId">
-                  {{ shop.name }}
+              <ng-container *ngFor="let machine of filterMachines">
+                <ion-select-option [value]="machine.id">
+                  {{ machine.name }}
                 </ion-select-option>
               </ng-container>
             </ion-select>

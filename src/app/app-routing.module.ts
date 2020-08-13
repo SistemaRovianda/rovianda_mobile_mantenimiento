@@ -1,5 +1,7 @@
 import { NgModule } from "@angular/core";
 import { PreloadAllModules, RouterModule, Routes } from "@angular/router";
+import { IsAuthGuard } from "./shared/guards/is-auth.guard";
+import { AuthGuard } from "./shared/guards/auth.guard";
 
 const routes: Routes = [
   {
@@ -9,7 +11,7 @@ const routes: Routes = [
   },
   {
     path: "login",
-    // canActivate: [IsAuthGuard]
+    canActivate: [IsAuthGuard],
     loadChildren: () =>
       import("./features/landing/layout/layout.module").then(
         (m) => m.LayoutModule
@@ -17,7 +19,7 @@ const routes: Routes = [
   },
   {
     path: "menu",
-    // canActivate: [AuthGuard],
+    canActivate: [AuthGuard],
     loadChildren: () =>
       import("./features/landing/pages/menu/menu.module").then(
         (m) => m.MenuModule
@@ -25,7 +27,7 @@ const routes: Routes = [
   },
   {
     path: "record",
-    // canActivate: [AuthGuard],
+    canActivate: [AuthGuard],
     loadChildren: () =>
       import("./features/records/records.module").then((m) => m.RecordsModule),
   },

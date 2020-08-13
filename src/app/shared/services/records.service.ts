@@ -43,7 +43,7 @@ export class RecordsService {
   }
 
   getMachines(): Observable<any> {
-    return this.http.get(`${this.url}`);
+    return this.http.get(`${this.url}/list/device`);
   }
 
   getShops(): Observable<any> {
