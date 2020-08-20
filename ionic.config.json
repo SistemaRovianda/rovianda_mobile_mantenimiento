@@ -1,5 +1,7 @@
 {
   "name": "rovianda_mobile_mantenimiento",
-  "integrations": {},
+  "integrations": {
+    "cordova": {}
+  },
   "type": "angular"
 }

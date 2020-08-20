@@ -107,7 +107,7 @@ export class LogginEffects {
     this.action$.pipe(
       ofType(fromLoginActions.signInSuccess),
       exhaustMap((action) =>
-        from(this._router.navigate(["/product/list"])).pipe(
+        from(this._router.navigate(["/menu"])).pipe(
           switchMap((result) =>
             result
               ? [fromLoginActions.finishLoad()]

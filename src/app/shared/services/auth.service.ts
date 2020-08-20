@@ -61,7 +61,7 @@ export class AuthService {
   verifyRole(): Observable<boolean> {
     return from(
       this.storage.get("role").then((role) => {
-        if (role != null && role == "MAINTENANCE") return Promise.resolve(true);
+        if (role != null && role == "MANTENIMENT") return Promise.resolve(true);
         return Promise.resolve(false);
       })
     ).pipe(map((res) => res));

@@ -7,6 +7,7 @@ import {
   FinishRecord,
   Machine,
   Shop,
+  CatalogMachines,
 } from "src/app/shared/models/records.interface";
 import { AppStateInterface } from "src/app/shared/models/storeState.interface";
 import { MessageFinishDialogComponent } from "../../dialogs/message-finish-dialog/message-finish-dialog.component";
@@ -21,7 +22,7 @@ import * as fromSelectorShop from "../../store/catalog-shop/catalog-shop.selecto
   styleUrls: ["./finish-record.component.scss"],
 })
 export class FinishRecordComponent implements OnInit {
-  machines$: Observable<Machine[]> = this.store.select(
+  machines$: Observable<CatalogMachines[]> = this.store.select(
     fromSelectorMachine.fetchAllMachines
   );
 
