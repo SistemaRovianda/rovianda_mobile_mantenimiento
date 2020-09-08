@@ -4,7 +4,13 @@ $color-text-secondary: var(--ion-color-secondary);
 $color-text-tertiary: var(--ion-color-tertiary);
 
 .form {
-  height: 80vh;
+  @include breakpoint-size(ms-extra-large) {
+    min-height: 700px;
+  }
+
+  @include breakpoint-size(ms-small) {
+    min-height: 1100px;
+  }
 }
 
 .title-menu {
@@ -27,6 +33,13 @@ $color-text-tertiary: var(--ion-color-tertiary);
 }
 
 .footer {
+  @include breakpoint-size(ms-extra-large) {
+    min-height: 100px;
+  }
+
+  @include breakpoint-size(ms-small) {
+    min-height: 100px;
+  }
   ion-button {
     --ion-color-primary: #e2bd53;
     text-transform: none;

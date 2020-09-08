@@ -1,9 +1,5 @@
 <ion-content>
-  <title-header
-    [titlePath]="'Regresar'"
-    [title]="'Mantenimiento'"
-    (onBack)="back($event)"
-  ></title-header>
+  <title-header [titlePath]="'Regresar'" [title]="'Mantenimiento'" (onBack)="back($event)"></title-header>
 
   <ion-grid class="form">
     <ion-col>
@@ -11,24 +7,15 @@
         <h1 class="title-menu">Terminar</h1>
       </ion-row>
       <ion-row>
-        <finish-record-form
-          #form
-          (onSubmit)="onSubmit($event)"
-          [machines]="machines$ | async"
-          [shops]="shops$ | async"
-        ></finish-record-form>
+        <finish-record-form #form (onSubmit)="onSubmit($event)" [machines]="machines$ | async" [shops]="shops$ | async">
+        </finish-record-form>
       </ion-row>
     </ion-col>
   </ion-grid>
 
   <ion-grid class="footer">
     <ion-row class="ion-justify-content-center">
-      <ion-button
-        color="primary"
-        size="large"
-        (click)="form.onSubmit()"
-        [disabled]="form.form.invalid"
-      >
+      <ion-button color="primary" size="large" (click)="form.onSubmit()" [disabled]="form.form.invalid">
         <ion-grid>
           <ion-col>
             Terminar

@@ -41,7 +41,7 @@ export class FinishRecordFormComponent implements OnInit {
     this.submit.emit(payload);
   }
 
-  ngOnInit() {}
+  ngOnInit() { }
 
   get photo() {
     return this.form.get("photo");
@@ -50,7 +50,7 @@ export class FinishRecordFormComponent implements OnInit {
   getCamera() {
     this.camera
       .getPicture({
-        quality: 100,
+        quality: 50,
         destinationType: this.camera.DestinationType.DATA_URL,
         encodingType: this.camera.EncodingType.JPEG,
         mediaType: this.camera.MediaType.PICTURE,
@@ -63,9 +63,21 @@ export class FinishRecordFormComponent implements OnInit {
   }
 
   change() {
+    console.log("change (): ")
     const storeId = this.form.get("storeId").value;
     const machines = this.machines.filter((data) => data.storeId == storeId);
-    this.filterMachines = machines[0].devices;
+    setTimeout(() => {
+      try {
+        console.log("Machines: ", machines);
+        if (machines != undefined) {
+          this.filterMachines = machines[0].devices;
+        }
+      } catch (error) {
+        console.log("machines esta indefinido: ", error)
+      }
+
+    }, 600);
+
 
     console.log("f ", this.filterMachines);
   }
