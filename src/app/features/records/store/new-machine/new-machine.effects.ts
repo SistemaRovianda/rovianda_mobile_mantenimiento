@@ -1,11 +1,13 @@
 import { Injectable } from "@angular/core";
 import { Actions, createEffect, ofType } from "@ngrx/effects";
 import { of } from "rxjs";
-import { catchError, exhaustMap, map } from "rxjs/operators";
+import { catchError, exhaustMap, map, switchMap } from "rxjs/operators";
 import { RecordsService } from "src/app/shared/services/records.service";
 import { ToastService } from "src/app/shared/Services/toast.service";
 import * as fromActions from "./new-machine.actions";
 import { Router } from "@angular/router";
+import { fetchAllShop } from '../catalog-shop/catalog-shop.actions';
+import { fetchAllMachine } from '../catalog-machine/catalog-machine.actions';
 
 @Injectable({
   providedIn: "root",
@@ -16,14 +18,14 @@ export class NewMachineEffects {
     private recordService: RecordsService,
     private toastService: ToastService,
     private router: Router
-  ) {}
+  ) { }
 
   newMachine$ = createEffect(() =>
     this.actions$.pipe(
       ofType(fromActions.newMachine),
       exhaustMap((action) =>
         this.recordService.newMachine(action.payload).pipe(
-          map((payload) => fromActions.newMachineSuccess({ payload })),
+          switchMap((payload) => [fromActions.newMachineSuccess()]),
           catchError((error) => of(fromActions.newMachineError(error)))
         )
       )
@@ -37,12 +39,9 @@ export class NewMachineEffects {
         exhaustMap((_) => {
           this.router.navigate(["record/finish"]);
           this.toastService.presentToastSuccess();
-          return [];
+          return [fetchAllShop(), fetchAllMachine()];
         })
-      ),
-    {
-      dispatch: false,
-    }
+      )
   );
 
   newMachinerrorEffect$ = createEffect(

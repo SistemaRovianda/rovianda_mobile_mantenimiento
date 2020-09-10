@@ -13,8 +13,7 @@ export const newMachine = createAction(
 );
 
 export const newMachineSuccess = createAction(
-  NEW_MACHINE_SUCCESS,
-  props<{ payload: Machine }>()
+  NEW_MACHINE_SUCCESS
 );
 
 export const newMachineError = createAction(

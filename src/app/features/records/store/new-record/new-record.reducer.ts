@@ -20,9 +20,8 @@ export const newRecordReducer = createReducer<newState>(
     loading: true,
   })),
 
-  on(fromActions.newRegisterSuccess, (state, { payload }) => ({
+  on(fromActions.newRegisterSuccess, (state) => ({
     ...state,
-    register: payload,
     loading: false,
   })),
 

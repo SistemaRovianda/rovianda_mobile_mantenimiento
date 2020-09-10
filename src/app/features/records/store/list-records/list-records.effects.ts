@@ -12,7 +12,7 @@ export class ListRecordsEffects {
   constructor(
     private actions$: Actions,
     private recordsService: RecordsService
-  ) {}
+  ) { }
 
   list$ = createEffect(() =>
     this.actions$.pipe(

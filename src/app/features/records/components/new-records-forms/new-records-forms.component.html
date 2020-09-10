@@ -5,22 +5,14 @@
         <ion-row>
           <ion-col size="12">
             <div class="image" *ngIf="!imgURL">
-              <ion-icon
-                src="/assets/icons/camera.svg"
-                class="image-icon"
-              ></ion-icon>
+              <ion-icon src="/assets/icons/camera.svg" class="image-icon"></ion-icon>
             </div>
             <ion-item *ngIf="imgURL">
               <img [src]="imgURL" width="200" height="200" />
             </ion-item>
           </ion-col>
           <ion-col size="12">
-            <ion-button
-              (click)="getCamera()"
-              expand="block"
-              fill="clear"
-              shape="round"
-            >
+            <ion-button (click)="getCamera()" expand="block" fill="clear" shape="round">
               Tomar foto
             </ion-button>
           </ion-col>
@@ -33,20 +25,15 @@
             <ion-label class="ion-label" position="floating">
               Título de falla*
             </ion-label>
-            <ion-input
-              formControlName="typeFailure"
-              placeholder="Ingrese título de falla"
-            ></ion-input>
+            <ion-input formControlName="typeFailure" placeholder="Ingrese título de falla"></ion-input>
           </ion-item>
         </ion-row>
         <div class="error">
-          <ion-label
-            *ngIf="
+          <ion-label *ngIf="
               form.hasError('required', 'typeFailure') &&
               (form.controls.typeFailure.touched ||
                 form.controls.typeFailure.dirty)
-            "
-          >
+            ">
             Este campo es requerido.
           </ion-label>
         </div>
@@ -55,45 +42,31 @@
 
     <ion-row>
       <ion-item class="form-input">
-        <ion-label class="ion-label" position="floating"
-          >Descripción*</ion-label
-        >
+        <ion-label class="ion-label" position="floating">Descripción*</ion-label>
 
-        <ion-input
-          formControlName="description"
-          placeholder="Ingrese descripción"
-        ></ion-input>
+        <ion-input formControlName="description" placeholder="Ingrese descripción"></ion-input>
       </ion-item>
     </ion-row>
     <div class="error">
-      <ion-label
-        *ngIf="
+      <ion-label *ngIf="
           form.hasError('required', 'description') &&
           (form.controls.description.touched || form.controls.description.dirty)
-        "
-      >
+        ">
         Este campo es requerido.
       </ion-label>
     </div>
 
     <ion-row>
       <ion-item class="form-input">
-        <ion-label class="ion-label" position="floating"
-          >Nombre completo*</ion-label
-        >
-        <ion-input
-          formControlName="fullName"
-          placeholder="Ingrese nombre"
-        ></ion-input>
+        <ion-label class="ion-label" position="floating">Nombre completo*</ion-label>
+        <ion-input formControlName="fullName" placeholder="Ingrese nombre" readonly></ion-input>
       </ion-item>
     </ion-row>
     <div class="error">
-      <ion-label
-        *ngIf="
+      <ion-label *ngIf="
           form.hasError('required', 'fullName') &&
           (form.controls.fullName.touched || form.controls.fullName.dirty)
-        "
-      >
+        ">
         Este campo es requerido.
       </ion-label>
 

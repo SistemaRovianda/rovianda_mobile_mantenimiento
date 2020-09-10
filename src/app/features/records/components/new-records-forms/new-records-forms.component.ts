@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 import { Camera } from "@ionic-native/camera/ngx";
 import { REGEX_NAME } from "src/app/shared/const";
 import * as moment from "moment";
+import { Storage } from '@ionic/storage';
 
 @Component({
   selector: "new-records-forms",
@@ -14,12 +15,12 @@ export class NewRecordsFormsComponent implements OnInit {
   imgURL: string;
   @Output("onSubmit") submit = new EventEmitter();
 
-  constructor(private fb: FormBuilder, private camera: Camera) {
+  constructor(private fb: FormBuilder, private camera: Camera, private storage: Storage) {
     this.form = fb.group({
       image: [""],
       typeFailure: [""],
       description: ["", Validators.required],
-      fullName: ["", [Validators.required, Validators.pattern(REGEX_NAME)]],
+      fullName: ['', [Validators.required, Validators.pattern(REGEX_NAME)]],
       dateInit: [new Date().toISOString()],
     });
   }
@@ -37,6 +38,13 @@ export class NewRecordsFormsComponent implements OnInit {
 
   ngOnInit() {
     console.log(this.imgURL);
+
+    this.storage.get('currentUser').then(user => {
+      this.form.get('fullName').setValue(user)
+    })
+
+    console.log(this.form.value)
+
   }
 
   get image() {
@@ -46,7 +54,7 @@ export class NewRecordsFormsComponent implements OnInit {
   getCamera() {
     this.camera
       .getPicture({
-        quality: 100,
+        quality: 50,
         destinationType: this.camera.DestinationType.DATA_URL,
         encodingType: this.camera.EncodingType.JPEG,
         mediaType: this.camera.MediaType.PICTURE,

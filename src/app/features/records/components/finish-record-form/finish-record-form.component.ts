@@ -57,7 +57,7 @@ export class FinishRecordFormComponent implements OnInit {
       })
       .then((res) => {
         this.imgURL = "data:image/jpeg;base64," + res;
-        this.form.get("photo").setValue(res);
+        this.form.get("image").setValue(res);
       })
       .catch((err) => console.error("Error en la toma de fotografia"));
   }

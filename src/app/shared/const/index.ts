@@ -6,4 +6,4 @@ export const ERROR_PASSWORD_INVALID =
 
 export const PASSWORD_REGEX = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*\d)(?=.*[*\-+_!@#$%^&.,?]).{8,16}$/;
 
-export const REGEX_NAME = /^[A-ZÑÁÉÍÓÚa-zñáéíóú]+((\s)?([A-ZÑÁÉÍÓÚa-zñáéíóú])+)*$/;
+export const REGEX_NAME = /^[A-ZÑÁÉÍÓÚa-zñáéíóú0-9]+((\s)?([A-ZÑÁÉÍÓÚa-zñáéíóú0-9])+)*$/;

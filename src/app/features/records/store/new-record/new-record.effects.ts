@@ -5,6 +5,8 @@ import { catchError, exhaustMap, map } from "rxjs/operators";
 import { RecordsService } from "src/app/shared/services/records.service";
 import { ToastService } from "src/app/shared/Services/toast.service";
 import * as fromActions from "./new-record.actions";
+import { fetchAllShop } from '../catalog-shop/catalog-shop.actions';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: "root",
@@ -13,15 +15,16 @@ export class NewRecordEffects {
   constructor(
     private actions$: Actions,
     private recordService: RecordsService,
-    private toastService: ToastService
-  ) {}
+    private toastService: ToastService,
+    private router: Router
+  ) { }
 
   newRecord$ = createEffect(() =>
     this.actions$.pipe(
       ofType(fromActions.newRegister),
       exhaustMap((action) =>
         this.recordService.newRecord(action.payload).pipe(
-          map((payload) => fromActions.newRegisterSuccess({ payload })),
+          map((payload) => fromActions.newRegisterSuccess()),
           catchError((error) => of(fromActions.newRegisterError(error)))
         )
       )
@@ -33,6 +36,7 @@ export class NewRecordEffects {
       this.actions$.pipe(
         ofType(fromActions.newRegisterSuccess),
         exhaustMap((_) => {
+          this.router.navigate(['/menu'])
           this.toastService.presentToastSuccess();
           return [];
         })

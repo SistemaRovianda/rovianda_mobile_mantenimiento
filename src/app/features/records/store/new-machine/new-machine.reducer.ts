@@ -20,9 +20,8 @@ export const newMachineReducer = createReducer<newState>(
     loading: true,
   })),
 
-  on(fromActions.newMachineSuccess, (state, { payload }) => ({
+  on(fromActions.newMachineSuccess, (state) => ({
     ...state,
-    register: payload,
     loading: false,
   })),
 

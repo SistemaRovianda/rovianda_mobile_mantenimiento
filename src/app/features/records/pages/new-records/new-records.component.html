@@ -1,9 +1,5 @@
 <ion-content>
-  <title-header
-    [titlePath]="'Regresar'"
-    [title]="'Mantenimiento'"
-    (onBack)="back($event)"
-  ></title-header>
+  <title-header [titlePath]="'Regresar'" [title]="'Mantenimiento'" (onBack)="back($event)"></title-header>
 
   <ion-grid class="form">
     <ion-col>
@@ -11,27 +7,21 @@
         <h1 class="title-menu">Registro</h1>
       </ion-row>
       <ion-row>
-        <new-records-forms
-          #form
-          (onSubmit)="onSubmit($event)"
-        ></new-records-forms>
+        <new-records-forms #form (onSubmit)="onSubmit($event)"></new-records-forms>
       </ion-row>
     </ion-col>
   </ion-grid>
 
   <ion-grid class="footer">
     <ion-row class="ion-justify-content-center">
-      <ion-button
-        (click)="form.onSubmit()"
-        [disabled]="form.form.invalid"
-        color="primary"
-        size="large"
-      >
+      <ion-button (click)="form.onSubmit()" [disabled]="(form.form.invalid || loading)" color="primary" size="large">
         <ion-grid>
-          <ion-col>
-            Agregar registro
-          </ion-col>
-          <ion-spinner *ngIf="false" name="crescent"></ion-spinner>
+          <ng-container *ngIf="!loading">
+            <ion-col>
+              Agregar registro
+            </ion-col>
+          </ng-container>
+          <ion-spinner *ngIf="loading" name="crescent"></ion-spinner>
         </ion-grid>
       </ion-button>
     </ion-row>

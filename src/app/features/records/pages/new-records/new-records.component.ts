@@ -3,6 +3,10 @@ import { Router } from "@angular/router";
 import { ModalController } from "@ionic/angular";
 import { NewRecord } from "src/app/shared/models/records.interface";
 import { MessageDialogComponent } from "../../dialogs/message-dialog/message-dialog.component";
+import { Observable } from 'rxjs';
+import { Store } from '@ngrx/store';
+import { AppStateInterface } from 'src/app/shared/models/storeState.interface';
+import { loadingNewRecord } from '../../store/new-record/new-record.selector';
 
 @Component({
   selector: "app-new-records",
@@ -12,12 +16,17 @@ import { MessageDialogComponent } from "../../dialogs/message-dialog/message-dia
 export class NewRecordsComponent implements OnInit {
   imgURL: string;
 
+  loading: boolean;
+
   constructor(
+    private store: Store<AppStateInterface>,
     private router: Router,
     public modalController: ModalController
-  ) {}
+  ) { }
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.store.select(loadingNewRecord).subscribe(res => this.loading = res)
+  }
 
   back() {
     this.router.navigate(["menu"]);
