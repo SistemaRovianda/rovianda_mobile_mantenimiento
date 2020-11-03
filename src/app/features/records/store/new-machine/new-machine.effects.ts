@@ -3,7 +3,7 @@ import { Actions, createEffect, ofType } from "@ngrx/effects";
 import { of } from "rxjs";
 import { catchError, exhaustMap, map, switchMap } from "rxjs/operators";
 import { RecordsService } from "src/app/shared/services/records.service";
-import { ToastService } from "src/app/shared/Services/toast.service";
+import { ToastService } from "src/app/shared/services/toast.service";
 import * as fromActions from "./new-machine.actions";
 import { Router } from "@angular/router";
 import { fetchAllShop } from '../catalog-shop/catalog-shop.actions';

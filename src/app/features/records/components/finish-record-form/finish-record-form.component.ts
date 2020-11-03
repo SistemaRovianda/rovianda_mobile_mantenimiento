@@ -19,12 +19,12 @@ export class FinishRecordFormComponent implements OnInit {
 
   @Input() machines: CatalogMachines[];
   @Input() shops: Shop;
+  image:string="";
   filterMachines: Device[] = [];
 
   constructor(private fb: FormBuilder, private camera: Camera) {
     this.form = fb.group({
       description: [""],
-      image: ["", Validators.required],
       storeId: ["", Validators.required],
       cost: ["", Validators.required],
       deviceId: ["", Validators.required],
@@ -36,6 +36,7 @@ export class FinishRecordFormComponent implements OnInit {
 
     const payload = {
       ...value,
+      image:this.image
     };
 
     this.submit.emit(payload);
@@ -57,7 +58,7 @@ export class FinishRecordFormComponent implements OnInit {
       })
       .then((res) => {
         this.imgURL = "data:image/jpeg;base64," + res;
-        this.form.get("image").setValue(res);
+        this.image=res;
       })
       .catch((err) => console.error("Error en la toma de fotografia"));
   }

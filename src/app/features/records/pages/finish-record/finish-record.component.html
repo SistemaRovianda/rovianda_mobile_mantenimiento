@@ -15,7 +15,7 @@
 
   <ion-grid class="footer">
     <ion-row class="ion-justify-content-center">
-      <ion-button color="primary" size="large" (click)="form.onSubmit()" [disabled]="form.form.invalid">
+      <ion-button color="primary" size="large" (click)="form.onSubmit()" [disabled]="!form.form.valid">
         <ion-grid>
           <ion-col>
             Terminar

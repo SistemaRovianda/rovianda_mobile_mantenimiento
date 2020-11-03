@@ -4,7 +4,7 @@ import { SplashScreen } from "@ionic-native/splash-screen/ngx";
 import { StatusBar } from "@ionic-native/status-bar/ngx";
 import { Platform } from "@ionic/angular";
 import { mergeMap } from "rxjs/operators";
-import { AuthService } from "./shared/Services/auth.service";
+import { AuthService } from "./shared/services/auth.service";
 import * as splash from "@capacitor/core";
 
 @Component({
