@@ -3,6 +3,7 @@ export interface Record {
   date: string;
   image: string;
   description: string;
+  maintenanceId:number;
 }
 
 export interface NewRecord {

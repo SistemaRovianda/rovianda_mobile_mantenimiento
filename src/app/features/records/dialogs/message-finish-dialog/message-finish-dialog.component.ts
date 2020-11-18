@@ -1,4 +1,4 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, Input, OnInit } from "@angular/core";
 import { ModalController } from "@ionic/angular";
 import { AppStateInterface } from "src/app/shared/models/storeState.interface";
 import { Store } from "@ngrx/store";
@@ -11,8 +11,9 @@ import * as fromActions from "../../store/finish-record/finish-record.actions";
   styleUrls: ["./message-finish-dialog.component.scss"],
 })
 export class MessageFinishDialogComponent implements OnInit {
-  finish: FinishRecord;
-
+  
+  @Input() newRecord: FinishRecord;
+  @Input() mantenanceId:number;
   constructor(
     public modalController: ModalController,
     private store: Store<AppStateInterface>
@@ -27,7 +28,8 @@ export class MessageFinishDialogComponent implements OnInit {
   save() {
     this.store.dispatch(
       fromActions.fininshRecord({
-        payload: this.finish,
+        payload: this.newRecord,
+        mantenanceId:this.mantenanceId
       })
     );
 

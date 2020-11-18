@@ -30,8 +30,8 @@ export class RecordsService {
     return this.http.post(`${this.url}`, body);
   }
 
-  finishRecord(body: FinishRecord): Observable<any> {
-    return this.http.put(`${this.url}`, body);
+  finishRecord(body: FinishRecord,mantenanceId:number): Observable<any> {
+    return this.http.put(`${this.url}/${mantenanceId}`, body);
   }
 
   newShop(body: Shop): Observable<any> {

@@ -21,7 +21,7 @@ const routes: Routes = [
     component: NewRecordsComponent,
   },
   {
-    path: "finish",
+    path: "finish/:mantenanceId",
     component: FinishRecordComponent,
   },
   {

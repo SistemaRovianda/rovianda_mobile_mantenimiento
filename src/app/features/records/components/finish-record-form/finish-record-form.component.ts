@@ -1,5 +1,6 @@
 import { Component, EventEmitter, Input, OnInit, Output } from "@angular/core";
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
+import { Router } from '@angular/router';
 import { Camera } from "@ionic-native/camera/ngx";
 import {
   CatalogMachines,
@@ -22,7 +23,7 @@ export class FinishRecordFormComponent implements OnInit {
   image:string="";
   filterMachines: Device[] = [];
 
-  constructor(private fb: FormBuilder, private camera: Camera) {
+  constructor(private fb: FormBuilder, private camera: Camera,private router:Router) {
     this.form = fb.group({
       description: [""],
       storeId: ["", Validators.required],
@@ -81,5 +82,8 @@ export class FinishRecordFormComponent implements OnInit {
 
 
     console.log("f ", this.filterMachines);
+  }
+  goToNewShop(){
+    this.router.navigate(["/record/new-shop"]);
   }
 }

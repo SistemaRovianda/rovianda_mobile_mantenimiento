@@ -3,6 +3,7 @@ import { AppStateInterface } from "src/app/shared/models/storeState.interface";
 import { Store } from "@ngrx/store";
 import { ModalController } from "@ionic/angular";
 import { Record } from "src/app/shared/models/records.interface";
+import { Router } from '@angular/router';
 
 @Component({
   selector: "app-detail-register-dialog",
@@ -14,7 +15,8 @@ export class DetailRegisterDialogComponent implements OnInit {
 
   constructor(
     public modalController: ModalController,
-    private store: Store<AppStateInterface>
+    private store: Store<AppStateInterface>,
+    private router:Router
   ) {}
 
   ngOnInit() {}
@@ -24,6 +26,7 @@ export class DetailRegisterDialogComponent implements OnInit {
   }
 
   finish() {
+    this.router.navigateByUrl(`/record/finish/${this.detail.maintenanceId}`);
     this.modalController.dismiss();
   }
 }

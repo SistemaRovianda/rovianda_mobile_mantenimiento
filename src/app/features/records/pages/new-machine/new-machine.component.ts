@@ -8,6 +8,7 @@ import { AppStateInterface } from "src/app/shared/models/storeState.interface";
 import { MessageMachineDialogComponent } from "../../dialogs/message-machine-dialog/message-machine-dialog.component";
 import * as fromSelectorShop from "../../store/catalog-shop/catalog-shop.selector";
 import * as fromActionsShop from "../../store/catalog-shop/catalog-shop.actions";
+import { Location } from '@angular/common';
 
 @Component({
   selector: "app-new-machine",
@@ -21,8 +22,9 @@ export class NewMachineComponent implements OnInit {
 
   constructor(
     private store: Store<AppStateInterface>,
-    private router: Router,
-    public modalController: ModalController
+    
+    public modalController: ModalController,
+    private router: Location,
   ) {}
 
   ngOnInit() {
@@ -30,7 +32,7 @@ export class NewMachineComponent implements OnInit {
   }
 
   back() {
-    this.router.navigate(["record/finish"]);
+    this.router.back();
   }
 
   onSubmit(payload) {

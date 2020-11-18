@@ -1,5 +1,5 @@
 import { Component, OnInit } from "@angular/core";
-import { Router } from "@angular/router";
+import { ActivatedRoute, Router } from "@angular/router";
 import { ModalController } from "@ionic/angular";
 import { Store } from "@ngrx/store";
 import { Observable } from "rxjs";
@@ -29,12 +29,15 @@ export class FinishRecordComponent implements OnInit {
   shops$: Observable<Shop[]> = this.store.select(
     fromSelectorShop.fetchAllShops
   );
-
+  mantenanceId=null;
   constructor(
     private store: Store<AppStateInterface>,
     private router: Router,
-    public modalController: ModalController
-  ) {}
+    public modalController: ModalController,
+    private route: ActivatedRoute
+  ) {
+    this.mantenanceId=this.route.snapshot.paramMap.get("mantenanceId")
+  }
 
   ngOnInit() {
     this.store.dispatch(fromActionsMachine.fetchAllMachine());
@@ -55,6 +58,7 @@ export class FinishRecordComponent implements OnInit {
       cssClass: "modal-size",
       componentProps: {
         newRecord: payload,
+        mantenanceId:this.mantenanceId
       },
     });
     return await modal.present();

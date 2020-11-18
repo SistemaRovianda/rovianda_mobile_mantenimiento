@@ -9,7 +9,7 @@ const FINISH_RECORD_ERROR = "['FINISH_RECORD'] Finish record Error";
 
 export const fininshRecord = createAction(
   FINISH_RECORD,
-  props<{ payload: FinishRecord }>()
+  props<{ payload: FinishRecord,mantenanceId:number }>()
 );
 
 export const fininshRecordSuccess = createAction(

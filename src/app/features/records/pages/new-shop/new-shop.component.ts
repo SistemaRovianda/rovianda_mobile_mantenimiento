@@ -1,5 +1,6 @@
+import { Location } from '@angular/common';
 import { Component, OnInit } from "@angular/core";
-import { Router } from "@angular/router";
+import { ActivatedRoute, Router } from "@angular/router";
 import { ModalController } from "@ionic/angular";
 import { Shop } from "src/app/shared/models/records.interface";
 import { MessageShopDialogComponent } from "../../dialogs/message-shop-dialog/message-shop-dialog.component";
@@ -11,14 +12,15 @@ import { MessageShopDialogComponent } from "../../dialogs/message-shop-dialog/me
 })
 export class NewShopComponent implements OnInit {
   constructor(
-    private router: Router,
-    public modalController: ModalController
+    private router: Location,
+    public modalController: ModalController,
   ) {}
 
   ngOnInit() {}
 
   back() {
-    this.router.navigate(["record/finish"]);
+    console.log("Atras");
+    this.router.back();
   }
 
   onSubmit(payload) {
