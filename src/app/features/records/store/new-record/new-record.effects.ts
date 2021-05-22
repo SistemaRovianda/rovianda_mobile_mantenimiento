@@ -36,7 +36,7 @@ export class NewRecordEffects {
       this.actions$.pipe(
         ofType(fromActions.newRegisterSuccess),
         exhaustMap((_) => {
-          this.router.navigate(['/menu'])
+          this.router.navigate(["menu"]);
           this.toastService.presentToastSuccess();
           return [];
         })

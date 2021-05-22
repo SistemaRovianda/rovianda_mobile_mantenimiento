@@ -6,7 +6,7 @@ import { RecordsService } from "src/app/shared/services/records.service";
 import { ToastService } from "src/app/shared/services/toast.service";
 import * as fromActions from "./new-shop.actions";
 import { Router } from "@angular/router";
-
+import {Location} from "@angular/common";
 @Injectable({
   providedIn: "root",
 })
@@ -15,7 +15,7 @@ export class NewShopEffects {
     private actions$: Actions,
     private recordService: RecordsService,
     private toastService: ToastService,
-    private router: Router
+    private _location: Location
   ) {}
 
   newShop$ = createEffect(() =>
@@ -35,7 +35,7 @@ export class NewShopEffects {
       this.actions$.pipe(
         ofType(fromActions.newShopSuccess),
         exhaustMap((_) => {
-          this.router.navigate(["record/finish"]);
+          this._location.back();
           this.toastService.presentToastSuccess();
           return [];
         })

@@ -14,7 +14,7 @@ export class ToastService {
       duration: 2000,
       color: "success",
     });
-    this.router.navigate(["/dried/menu"]);
+    this.router.navigate(["/menu"]);
     toast.present();
   }
 
@@ -34,7 +34,7 @@ export class ToastService {
       duration: 2000,
       color: "success",
     });
-    this.router.navigate(["/packaging/menu"]);
+    this.router.navigate(["/menu"]);
     toast.present();
   }
 }

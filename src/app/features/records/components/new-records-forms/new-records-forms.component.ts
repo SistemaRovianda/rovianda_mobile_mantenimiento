@@ -31,6 +31,7 @@ export class NewRecordsFormsComponent implements OnInit {
     const payload = {
       dateInit: moment(dateInit).format("YYYY-MM-DD"),
       ...value,
+      
     };
 
     this.submit.emit(payload);

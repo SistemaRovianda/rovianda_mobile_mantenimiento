@@ -8,7 +8,7 @@ import * as fromActions from "./new-machine.actions";
 import { Router } from "@angular/router";
 import { fetchAllShop } from '../catalog-shop/catalog-shop.actions';
 import { fetchAllMachine } from '../catalog-machine/catalog-machine.actions';
-
+import {Location} from "@angular/common";
 @Injectable({
   providedIn: "root",
 })
@@ -17,7 +17,7 @@ export class NewMachineEffects {
     private actions$: Actions,
     private recordService: RecordsService,
     private toastService: ToastService,
-    private router: Router
+    private _location: Location
   ) { }
 
   newMachine$ = createEffect(() =>
@@ -37,7 +37,7 @@ export class NewMachineEffects {
       this.actions$.pipe(
         ofType(fromActions.newMachineSuccess),
         exhaustMap((_) => {
-          this.router.navigate(["record/finish"]);
+          this._location.back();
           this.toastService.presentToastSuccess();
           return [fetchAllShop(), fetchAllMachine()];
         })

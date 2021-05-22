@@ -36,7 +36,7 @@ export class FinishRecordEffects {
         ofType(fromActions.fininshRecordSuccess),
         exhaustMap((_) => {
           this.toastService.presentToastSuccess();
-          this.router.navigateByUrl("/menu");
+          this.router.navigate(["menu"]);
           return [];
         })
       ),
